@@ -1,0 +1,24 @@
+<h1>Edit your item listing</h1>
+
+<% if @item.errors.any? %>
+<%= erb :"_errors", locals: {errors: @item.errors} %>
+<% end %>
+
+
+<form method="post" action="/items/<%= @item.id %>">
+    <input name="_method" type="hidden" value="put" />
+
+  <input type="text" name="item[name]" placeholder="Item name" value="<%= @item.name %>">
+
+  <input type="text" name="item[condition]" placeholder="Condtion" value="<%= @item.condition %>">
+
+  <input type="datetime-local" name="item[starts_at]" placeholder="Starting time" >
+
+  <input type="datetime-local" name="item[ends_at]" placeholder="Ending time">
+
+  <input type="text" name="item[description]" placeholder="Item Description" value="<%= @item.description %>">
+
+  <input type="hidden" name="item[user_id]" value="<%=current_user.id%>">
+
+  <input type="submit" value="Update Listing">
+</form>

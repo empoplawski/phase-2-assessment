@@ -9,7 +9,7 @@ post '/sessions' do
     session[:user_id] = @user.id
     redirect '/'
   else
-    @message = "Either you username or password was wrong"
+    @errors = @user.errors.full_messages
     erb :"sessions/new"
   end
 

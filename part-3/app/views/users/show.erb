@@ -6,7 +6,9 @@
 
 <ul class="items-list">
   <% @user.items.each do |item| %>
-    <li><%=item.name  %></li>
+    <li><%=item.name  %> - <a href="/items/<%= item.id%>/edit">Edit</a>
+      <%= erb :'items/_delete', layout: false, locals: { item: item} %>
+    </li>
   <% end %>
 
 </ul>
