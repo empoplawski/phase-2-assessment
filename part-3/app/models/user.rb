@@ -2,7 +2,8 @@ class User < ApplicationRecord
   include BCrypt
 
   has_many :items
-
+  has_many :bids
+ 
   validates :username, :email, presence: true
   validate :validate_password
   validates_uniqueness_of :email

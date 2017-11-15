@@ -22,6 +22,9 @@ end
 #show
 get '/items/:id' do
   @item = Item.find(params[:id])
+  @bid = Bid.find_by(bidder: current_user)
+  p "******************"
+  p @bid
   erb :"items/show"
 end
 

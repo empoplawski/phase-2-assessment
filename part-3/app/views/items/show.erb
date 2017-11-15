@@ -12,4 +12,20 @@
   <%= date_and_time(@item.ends_at) %>
 </h3>
 
+
+<h1>Bidding</h1>
+
+<p>Number of bids: <%= @item.bids.count %></p>
+
+<% if !@item.bidders.include?(current_user) %>
+
+ <%= erb :"bids/new", layout: false, locals: { item: @item }  %>
+
+<% else %>
+  <p>You have already placed a bid on this item! You bid $ <%= @bid.amount %> on <%= date_and_time(@bid.bid_date)  %><br>Thanks for bidding!
+  </p>
+
+  
+
+<% end %>
 </center>
