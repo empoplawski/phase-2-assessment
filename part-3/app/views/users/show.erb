@@ -1,1 +1,12 @@
 <h1>Hey you made it <%= current_user.username %></h1>
+
+<a href="/items/new">Add a new item!</a>
+
+<h3><center>Your Items for Sale</center></h3>
+
+<ul class="items-list">
+  <% @user.items.each do |item| %>
+    <li><%=item.name  %></li>
+  <% end %>
+
+</ul>

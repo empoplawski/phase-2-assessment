@@ -1,0 +1,17 @@
+<h1>Add a new item for auction</h1>
+
+<form method="POST" action="/items">
+  <input type="text" name="item[name]" placeholder="Item name" value="<%= @item.name %>">
+
+  <input type="text" name="item[condition]" placeholder="Condtion" value="<%= @item.condition %>">
+
+  <input type="datetime-local" name="item[starts_at]" placeholder="Starting time" value="<%= @item.starts_at %>">
+
+  <input type="datetime-local" name="item[ends_at]" placeholder="Ending time" value="<%= @item.ends_at %>">
+
+  <input type="text" name="item[description]" placeholder="Item Description" value="<%= @item.description %>">
+
+  <input type="hidden" name="item[user_id]" value="<%=current_user.id%>">
+
+  <input type="submit">
+</form>
