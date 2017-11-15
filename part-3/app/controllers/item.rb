@@ -1,4 +1,5 @@
 get '/items/new' do
+  authenticate!
   @item = Item.new
   erb :'items/new'
 end
@@ -18,6 +19,12 @@ post '/items' do
 
 end
 
+#show
+get '/items/:id' do
+  @item = Item.find(params[:id])
+  erb :"items/show"
+end
+
 #edit
 get '/items/:id/edit' do
   authenticate!
@@ -29,7 +36,6 @@ end
 
 #update
 put '/items/:id' do
-  p params
   authenticate!
   @item = Item.find(params[:id])
   is_authorized?(@item.user)

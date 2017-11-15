@@ -1,4 +1,5 @@
 get '/sessions/new' do
+  @user = User.new
   erb :"sessions/new"
 end
 
@@ -9,7 +10,8 @@ post '/sessions' do
     session[:user_id] = @user.id
     redirect '/'
   else
-    @errors = @user.errors.full_messages
+    status 422
+    @errors = ["Either your username or password was wrong! Please try again."]
     erb :"sessions/new"
   end
 

@@ -1,0 +1,15 @@
+<center><h1><u><%= @item.name %></u></h1>
+
+<h3>Description: <br>
+  <%= @item.description %>
+</h3>
+
+<h3>Condition: <br>
+  <%= @item.condition %>
+</h3>
+
+<h3>Auction ends at: <br>
+  <%= date_and_time(@item.ends_at) %>
+</h3>
+
+</center>

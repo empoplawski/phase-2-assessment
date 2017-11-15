@@ -18,7 +18,6 @@ end
 
 get '/users/:id' do
   @user = current_user
-
   if is_authorized?(current_user)
     erb :'users/show'
   else
